@@ -11,9 +11,12 @@ def gen_pass(pass_length):
     return password
 
 
-def random_emoji():
+def random_emoji(ammount):
+    emojissent = ""
     emojis = ["😄", "🙂", ":skull:", "👍", "🤨", "🎮", "🗿", "🥶", "🐬", "✨", "🐀", "💯", "🐠"]
-    return random.choice(emojis)
+    for i in range(ammount):
+        emojissent += (random.choice(emojis))
+    return emojissent
 
 def flip_coin():
     coin = ["Heads", "Tails"]

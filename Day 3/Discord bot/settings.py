@@ -1,3 +1,3 @@
 settings = {
     "prefix": "!",
-    "TOKEN": "MTEyOTA5MjQ5NzIzMTA2OTI0NA.GCYX1N.VD-D_CKw4jHLSVnHuNAMoJ2EeB3nlRp5l2bVtg"}
+    "TOKEN": "MTEyOTA5MjQ5NzIzMTA2OTI0NA.GQwncc.6X-PWV4FR5Z4FzmBdahsxw52xUmAVkHA1eT_6M"}
