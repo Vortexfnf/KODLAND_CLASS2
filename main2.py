@@ -80,6 +80,26 @@ async def userinfo(ctx, member: discord.Member = None):
 
     await ctx.send(embed=embed)
 
+@client.command()
+async def server_info(ctx):
+
+    server = ctx.guild
+
+    # Create an embed
+    embed = discord.Embed(title="Server Information", color=discord.Color.blue())
+
+    # Add the server's info
+    embed = discord.Embed(title=f"Server Information - {server.name}", color=discord.Color.blue())
+    embed.set_thumbnail(url=server.icon.url)  # Use 'icon' attribute instead of 'icon_url'
+    embed.add_field(name="Server Name", value=server.name, inline=False)
+    embed.add_field(name="Server ID", value=server.id, inline=False)
+    embed.add_field(name="Owner", value=server.owner, inline=False)
+    embed.add_field(name="Total Members", value=server.member_count, inline=False)
+    embed.add_field(name="Text Channels", value=len(server.text_channels), inline=False)
+    embed.add_field(name="Voice Channels", value=len(server.voice_channels), inline=False)
+    embed.add_field(name="Roles", value=len(server.roles), inline=False)
+
+    await ctx.send(embed=embed)
 # GENERATE MEME WITH OS
 @client.command()
 async def generate_meme(ctx):
@@ -138,4 +158,4 @@ async def on_message_edit(before, after):
     await before.channel.send(msg)
 
 # Run the bot
-client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.GiHpnJ.NQCm861w1kzRTuhFJue9a3JjYo5zGbbFBNAj2I")
+client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.GhP_5o.YnUIH2Q3t5DOCOHWvRlEFH1pp4Jpq10BycE6zI")
