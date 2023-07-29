@@ -2,7 +2,6 @@ import discord
 from bot_logic import gen_pass
 from bot_logic import flip_coin
 from bot_logic import random_emoji
-from settings import settings
 
 # The intents variable stores the bot's priviliges
 intents = discord.Intents.default()
@@ -32,4 +31,4 @@ async def on_message(message):
     elif message.content.startswith('$coin_flip'):
         await message.channel.send(flip_coin())
 
-client.run(settings["TOKEN"])
+client.run("MY TOKEN")

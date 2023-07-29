@@ -2,9 +2,9 @@ import datetime
 import os
 import discord
 import asyncio
+import random
 from discord.ext import commands
-from bot_logic import gen_pass, random_emoji, Guessing_Game
-
+from bot_logic import *
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -80,6 +80,24 @@ async def userinfo(ctx, member: discord.Member = None):
     await ctx.send(embed=embed)
 
 
+@client.command()
+async def meme(ctx):
+    meme_files = [
+        'Memes/meme1.jpg',
+        'Memes/meme2.jpg',
+        'Memes/meme3.jpg'
+    ]
+
+    # Randomly select a meme file from the list
+    selected_meme_file = random.choice(meme_files)
+
+    # Open the selected meme file in binary read mode
+    with open(selected_meme_file, "rb") as f:
+        # Save the converted archive in this variable:
+        meme = discord.File(f)
+
+    # Send the image:
+    await ctx.send(file=meme)
 
 @client.command()
 async def editme(ctx):
@@ -93,4 +111,4 @@ async def on_message_edit(before, after):
     await before.channel.send(msg)
 
 # Run the bot
-client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.GJDYct.q6urHexBIfuOFV7aS80aN1WQuolMo_YyJfvyqA")
+client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.G_kSHW.T-jjRLVaYJjRpirsDtNqqJTYLFq2q1s8WBj3s0")
