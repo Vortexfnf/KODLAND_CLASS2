@@ -79,9 +79,22 @@ async def userinfo(ctx, member: discord.Member = None):
 
     await ctx.send(embed=embed)
 
-
+# GENERATE MEME WITH OS
 @client.command()
-async def meme(ctx):
+async def generate_meme(ctx):
+    imagenes_cargadas= random.choice(os.listdir('Memes'))
+
+    # Open the selected meme file in binary read mode
+    with open(f'Memes/{imagenes_cargadas}', "rb") as f:
+        # Save the converted archive in this variable:
+        meme = discord.File(f)
+
+    # Send the image:
+    await ctx.send(file=meme)
+
+# GENERATE MEME WITHOUT OS
+@client.command()
+async def gen_meme(ctx):
     meme_files = [
         'Memes/meme1.jpg',
         'Memes/meme2.jpg',
@@ -94,10 +107,10 @@ async def meme(ctx):
     # Open the selected meme file in binary read mode
     with open(selected_meme_file, "rb") as f:
         # Save the converted archive in this variable:
-        meme = discord.File(f)
+        memesent = discord.File(f)
 
     # Send the image:
-    await ctx.send(file=meme)
+    await ctx.send(file=memesent)
 
 @client.command()
 async def editme(ctx):
@@ -111,4 +124,4 @@ async def on_message_edit(before, after):
     await before.channel.send(msg)
 
 # Run the bot
-client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.G_kSHW.T-jjRLVaYJjRpirsDtNqqJTYLFq2q1s8WBj3s0")
+client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.Gdar4y.DvLU5SgWXTRsS2Tjz_hJKqZ63plcUhurUEflvo")
