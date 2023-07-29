@@ -5,6 +5,7 @@ import asyncio
 import random
 from discord.ext import commands
 from bot_logic import *
+
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -112,6 +113,19 @@ async def gen_meme(ctx):
     # Send the image:
     await ctx.send(file=memesent)
 
+# DUUUCK
+@client.command('duck')
+async def duck(ctx):
+    '''Una vez que llamamos al comando duck, 
+    el programa llama a la función get_duck_image_url'''
+    image_url = get_duck_image_url()
+    await ctx.send(image_url)
+
+@client.command('dog')
+async def dog(ctx):
+    image_url = get_dog_image_url()
+    await ctx.send(image_url)
+
 @client.command()
 async def editme(ctx):
     msg = await ctx.send("10")  # Defines the message
@@ -124,4 +138,4 @@ async def on_message_edit(before, after):
     await before.channel.send(msg)
 
 # Run the bot
-client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.Gdar4y.DvLU5SgWXTRsS2Tjz_hJKqZ63plcUhurUEflvo")
+client.run("MTEyOTA5MjQ5NzIzMTA2OTI0NA.GiHpnJ.NQCm861w1kzRTuhFJue9a3JjYo5zGbbFBNAj2I")

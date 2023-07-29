@@ -1,4 +1,5 @@
 import random
+import requests
 
 
 def gen_pass(pass_length):
@@ -24,6 +25,18 @@ def flip_coin():
     coin = ["Heads", "Tails"]
     coin_flip = random.choice(coin)
     return coin_flip
+
+def get_duck_image_url():    
+    url = 'https://random-d.uk/api/random'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
+
+def get_dog_image_url():
+    url = 'https://random.dog/woof.json'
+    res = requests.get(url)
+    data = res.json()
+    return data['url']
 
 class Guessing_Game:
     def __init__(self):
